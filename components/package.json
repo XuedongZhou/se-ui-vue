@@ -1,0 +1,19 @@
+{
+  "name": "@se-ui/vue",
+  "version": "0.0.13",
+  "description": "se-ui for vue",
+  "main": "index.ts",
+  "keywords": [
+    "se-ui",
+    "vue",
+    "components library"
+  ],
+  "author": "XuedongZhou",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

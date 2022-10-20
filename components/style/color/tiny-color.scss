@@ -1,0 +1,153 @@
+@use 'sass:math';
+@use 'sass:list';
+@use 'sass:color';
+
+@function ch-max($v1, $v2) {
+  @return if($v1 > $v2, $v1, $v2);
+}
+
+@function ch-min($v1, $v2) {
+  @return if($v1 < $v2, $v1, $v2);
+}
+
+@function ch-gcd($a, $b) {
+  // From: http://rosettacode.org/wiki/Greatest_common_divisor#JavaScript
+  @if $b != 0 {
+    @return ch-gcd($b, $a % $b);
+  } @else {
+    @return abs($a);
+  }
+}
+
+@function ch-pow($base, $exponent, $precision: 12) {
+  // 处理十进制指数的方法是将它们转换为分数，然后使用n次方根算法进行部分计算
+  @if floor($exponent) != $exponent {
+    $precision-new: ch-pow(10, $precision);
+    $exponent: math.round($exponent * $precision-new);
+    $denominator: ch-gcd($exponent, $precision-new);
+    @return ch-nth-root(ch-pow($base, $exponent / $denominator), $precision-new / $denominator, $precision);
+  }
+
+  $value: $base;
+  @if $exponent > 1 {
+    @for $i from 2 through $exponent {
+      $value: $value * $base;
+    }
+  } @else if $exponent < 1 {
+    @for $i from 0 through -$exponent {
+      $value: $value / $base;
+    }
+  }
+
+  @return $value;
+}
+
+@function ch-nth-root($num, $n: 2, $precision: 12) {
+  // From: http://rosettacode.org/wiki/Nth_root#JavaScript
+  $x: 1;
+
+  @for $i from 0 through $precision {
+    $x: 1 / $n * (($n - 1) * $x + ($num / ch-pow($x, $n - 1)));
+  }
+
+  @return $x;
+}
+
+@function ch-hsv-to-hsl($h, $s: 0, $v: 0) {
+  @if type_of($h) == 'list' {
+    $v: list.nth($h, 3);
+    $s: list.nth($h, 2);
+    $h: list.nth($h, 1);
+  }
+
+  @if unit($h) == 'deg' {
+    $h: 3.1415 * 2 * calc($h / 360deg);
+  }
+  @if unit($s) == '%' {
+    $s: 0 + calc(math.round($s) / 100%);
+  } @else {
+    $s: calc($s / 100);
+  }
+  @if unit($v) == '%' {
+    $v: if($v >= 100, 1, calc($v / 100%));
+  }
+
+  $ss: $s * $v;
+  $ll: (2 - $s) * $v;
+
+  @if $ll == 2 or $ll == 0 {
+    $ss: 0;
+  } @else if $ll <= 1 {
+    $ss: calc($ss / $ll);
+  } @else {
+    $ss: calc($ss / (2 - $ll));
+  }
+
+  $ll: calc($ll / 2);
+
+  @return calc(360deg * $h / (3.1415 * 2)), percentage(max(0, min(1, $ss))), percentage(max(0, min(1, $ll)));
+}
+
+@function ch-hsl-to-hsv($h, $ss: 0, $ll: 0) {
+  @if type_of($h) == 'list' {
+    $ll: list.nth($h, 3);
+    $ss: list.nth($h, 2);
+    $h: list.nth($h, 1);
+  } @else if type_of($h) == 'color' {
+    $ll: color.lightness($h);
+    $ss: color.saturation($h);
+    $h: color.hue($h);
+  }
+
+  @if unit($h) == 'deg' {
+    $h: 3.1415 * 2 * calc($h / 360deg);
+  }
+  @if unit($ss) == '%' {
+    $ss: 0 + calc($ss / 100%);
+  }
+  @if unit($ll) == '%' {
+    $ll: 0 + calc($ll / 100%);
+  }
+
+  $ll: $ll * 2;
+
+  @if $ll <= 1 {
+    $ss: $ss * $ll;
+  } @else {
+    $ss: $ss * (2 - $ll);
+  }
+
+  $v: calc(($ll + $ss) / 2);
+
+  $s: 0;
+  @if $ll + $ss != 0 {
+    $s: calc((2 * $ss) / ($ll + $ss));
+  }
+
+  @return calc(360deg * $h / (3.1415 * 2)), percentage(max(0, min(1, $s))), percentage(max(0, min(1, $v)));
+}
+
+@function ch-color-to-hsv($color) {
+  @return ch-hsl-to-hsv($color);
+}
+
+@function ch-hsv-to-color($h, $s: 0, $v: 0) {
+  $hsl: ch-hsv-to-hsl($h, $s, $v);
+  @return hsla(nth($hsl, 1), nth($hsl, 2), nth($hsl, 3), 1);
+}
+
+@function ch-brightness($h, $s: 0, $v: 0, $adjustment: 0) {
+  @if type_of($h) == 'color' {
+    $h: ch-color-to-hsv($h);
+  }
+  @if type_of($h) == 'list' {
+    $adjustment: $s;
+    $v: list.nth($h, 3);
+    $s: list.nth($h, 2);
+    $h: list.nth($h, 1);
+  }
+
+  $v: ch-max(0%, ch-min(100%, $v + $adjustment));
+
+  @return ch-hsv-to-color($h, $s, $v);
+}

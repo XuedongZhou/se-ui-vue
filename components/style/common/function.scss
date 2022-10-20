@@ -1,0 +1,15 @@
+@use 'config';
+
+@function join-var-name($list) {
+  $name: '--' + config.$prefix;
+  @each $item in $list {
+    @if $item != '' {
+      $name: $name + '-' + $item;
+    }
+  }
+  @return $name;
+}
+
+@function get-css-var($args...) {
+  @return var(#{join-var-name($args)});
+}

@@ -1,0 +1,12 @@
+node_modules
+
+dist
+
+.husky
+.eslintignore
+.npmrc
+.gitignore
+.prettierignore
+.stylelintignore
+
+pnpm-lock.yaml

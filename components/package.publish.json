@@ -1,0 +1,18 @@
+{
+  "name": "@se-ui/vue",
+  "version": "0.0.1",
+  "description": "se-ui for vue",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
+  "files": ["dist", "es", "lib", "types"],
+  "keywords": ["se-ui", "vue", "components library"],
+  "author": "XuedongZhou",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

@@ -1,0 +1,25 @@
+@use '../../style/common/config.scss' as *;
+@use '../../style/variable.scss' as *;
+@use './mixin' as *;
+
+.#{$prefix}-button {
+  @include button;
+
+  @include button-default;
+
+  &-primary {
+    @include button-primary;
+  }
+
+  &-dashed {
+    @include button-dashed;
+  }
+
+  &-danger {
+    @include button-danger-default;
+  }
+
+  @at-root #{&}-primary#{&}-danger {
+    @include button-danger;
+  }
+}

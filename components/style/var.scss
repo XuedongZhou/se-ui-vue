@@ -1,0 +1,87 @@
+@use 'sass:map';
+
+@use './common/config' as *;
+@use './color/colors' as *;
+
+:root {
+  --#{$prefix}-color-white: #fff;
+  --#{$prefix}-color-black: #000;
+
+  // ========= Primary Color =========
+  --#{$prefix}-color-primary: #{$green-base};
+  --#{$prefix}-color-primary-1: #{$green-100};
+  --#{$prefix}-color-primary-2: #{$green-200};
+  --#{$prefix}-color-primary-3: #{$green-300};
+  --#{$prefix}-color-primary-4: #{$green-400};
+  --#{$prefix}-color-primary-5: #{$green-500};
+  --#{$prefix}-color-primary-6: #{$green-600};
+  --#{$prefix}-color-primary-7: #{$green-700};
+  --#{$prefix}-color-primary-8: #{$green-800};
+  --#{$prefix}-color-primary-9: #{$green-900};
+  --#{$prefix}-color-primary-10: #{$green-1000};
+
+  // ========= Success Color =========
+  --#{$prefix}-color-success: #{$green-base};
+  --#{$prefix}-color-success-1: #{$green-100};
+  --#{$prefix}-color-success-2: #{$green-200};
+  --#{$prefix}-color-success-3: #{$green-300};
+  --#{$prefix}-color-success-4: #{$green-400};
+  --#{$prefix}-color-success-5: #{$green-500};
+  --#{$prefix}-color-success-6: #{$green-600};
+  --#{$prefix}-color-success-7: #{$green-700};
+  --#{$prefix}-color-success-8: #{$green-800};
+  --#{$prefix}-color-success-9: #{$green-900};
+  --#{$prefix}-color-success-10: #{$green-1000};
+
+  // ========= Success Color =========
+  --#{$prefix}-color-warning: #{$orange-base};
+  --#{$prefix}-color-warning-1: #{$orange-100};
+  --#{$prefix}-color-warning-2: #{$orange-200};
+  --#{$prefix}-color-warning-3: #{$orange-300};
+  --#{$prefix}-color-warning-4: #{$orange-400};
+  --#{$prefix}-color-warning-5: #{$orange-500};
+  --#{$prefix}-color-warning-6: #{$orange-600};
+  --#{$prefix}-color-warning-7: #{$orange-700};
+  --#{$prefix}-color-warning-8: #{$orange-800};
+  --#{$prefix}-color-warning-9: #{$orange-900};
+  --#{$prefix}-color-warning-10: #{$orange-1000};
+
+  // ========= Danger Color =========
+  --#{$prefix}-color-danger: #{$red-base};
+  --#{$prefix}-color-danger-1: #{$red-100};
+  --#{$prefix}-color-danger-2: #{$red-200};
+  --#{$prefix}-color-danger-3: #{$red-300};
+  --#{$prefix}-color-danger-4: #{$red-400};
+  --#{$prefix}-color-danger-5: #{$red-500};
+  --#{$prefix}-color-danger-6: #{$red-600};
+  --#{$prefix}-color-danger-7: #{$red-700};
+  --#{$prefix}-color-danger-8: #{$red-800};
+  --#{$prefix}-color-danger-9: #{$red-900};
+  --#{$prefix}-color-danger-10: #{$red-1000};
+
+  // ========= Info Color =========
+  --#{$prefix}-color-info: #{$blue-base};
+  --#{$prefix}-color-info-1: #{$blue-100};
+  --#{$prefix}-color-info-2: #{$blue-200};
+  --#{$prefix}-color-info-3: #{$blue-300};
+  --#{$prefix}-color-info-4: #{$blue-400};
+  --#{$prefix}-color-info-5: #{$blue-500};
+  --#{$prefix}-color-info-6: #{$blue-600};
+  --#{$prefix}-color-info-7: #{$blue-700};
+  --#{$prefix}-color-info-8: #{$blue-800};
+  --#{$prefix}-color-info-9: #{$blue-900};
+  --#{$prefix}-color-info-10: #{$blue-1000};
+
+  // ========= Gray Color =========
+  --#{$prefix}-color-gary: #{$gray-600};
+  --#{$prefix}-color-gray-1: #{$gray-100};
+  --#{$prefix}-color-gray-2: #{$gray-200};
+  --#{$prefix}-color-gray-3: #{$gray-300};
+  --#{$prefix}-color-gray-4: #{$gray-400};
+  --#{$prefix}-color-gray-5: #{$gray-500};
+  --#{$prefix}-color-gray-6: #{$gray-600};
+  --#{$prefix}-color-gray-7: #{$gray-700};
+  --#{$prefix}-color-gray-8: #{$gray-800};
+  --#{$prefix}-color-gray-9: #{$gray-900};
+  --#{$prefix}-color-gray-10: #{$gray-1000};
+}

@@ -1,0 +1,165 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../../style/variable' as *;
+@use '../../style/color/colors.scss' as *;
+
+@mixin button-color($color, $background, $border-color) {
+  color: $color;
+  border-color: $border-color;
+
+  @if $background {
+    background: $background;
+  }
+}
+
+@mixin button-size($height, $font-size, $padding-horizontal, $border-radius) {
+  $padding-vertical: max((math.round(calc(($height - $font-size) / 2) * 10) / 10) - map.get($border-width, 'base'), 0);
+
+  height: $height;
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $font-size;
+  vertical-align: middle;
+  border-radius: $border-radius;
+}
+
+@mixin button-disabled(
+  $color: map.get($button, 'disabled-text-color'),
+  $background: map.get($button, 'disabled-background-color'),
+  $border: map.get($button, 'disabled-border-color')
+) {
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      @include button-color($color, $background, $border);
+
+      text-shadow: none;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin button-variant-primary($color, $background, $background-hover: yellow, $background-active: yellow) {
+  @include button-color($color, $background, $background);
+
+  &:hover,
+  &:focus {
+    @include button-color($color, $background-hover, $background-hover);
+  }
+
+  &:active {
+    @include button-color($color, $background-active, $background-active);
+  }
+
+  @include button-disabled;
+}
+
+@mixin button-variant-other($color, $border, $border-hover, $border-active) {
+  @include button-color($color, #fff, $border);
+
+  &:hover,
+  &:focus {
+    @include button-color($border-hover, #fff, $border-hover);
+  }
+
+  &:active {
+    @include button-color($border-active, #fff, $border-active);
+  }
+
+  @include button-disabled;
+}
+
+@mixin button-primary() {
+  @include button-variant-primary(
+    map.get($button, 'text-color-white'),
+    map.get($button, 'background-color'),
+    map.get($button, 'hover-background-color'),
+    map.get($button, 'active-background-color')
+  );
+}
+
+@mixin button-default() {
+  @include button-variant-other(
+    map.get($button, 'text-color-black'),
+    map.get($button, 'border-color'),
+    map.get($button, 'hover-text-color'),
+    map.get($button, 'active-text-color')
+  );
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+@mixin button-dashed() {
+  border-style: dashed;
+}
+
+@mixin button-danger-default() {
+  @include button-variant-other(
+    map.get($colors, 'danger', 'base'),
+    map.get($colors, 'danger', 'base'),
+    map.get($colors, 'danger', 'hover'),
+    map.get($colors, 'danger', 'active')
+  );
+}
+
+@mixin button-danger() {
+  @include button-variant-primary(
+    map.get($button, 'text-color-white'),
+    map.get($colors, 'danger', 'base'),
+    map.get($colors, 'danger', 'hover'),
+    map.get($colors, 'danger', 'active')
+  );
+}
+
+@mixin button() {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border: map.get($border-width, 'base') map.get($border-style, 'solid') transparent;
+
+  @include button-size(
+    map.get($button-height, 'default'),
+    map.get($button-font-size, 'default'),
+    map.get($button-padding-horizontal, 'default'),
+    map.get($button-border-radius, 'default')
+  );
+
+  &,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  &-large {
+    @include button-size(
+      map.get($button-height, 'large'),
+      map.get($button-font-size, 'large'),
+      map.get($button-padding-horizontal, 'large'),
+      map.get($button-border-radius, 'large')
+    );
+  }
+
+  &-small {
+    @include button-size(
+      map.get($button-height, 'small'),
+      map.get($button-font-size, 'small'),
+      map.get($button-padding-horizontal, 'small'),
+      map.get($button-border-radius, 'small')
+    );
+  }
+}

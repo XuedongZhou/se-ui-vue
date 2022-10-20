@@ -1,0 +1,195 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@use './common/config' as *;
+@use './common/function' as *;
+@use './color/colors' as *;
+
+$types: primary, success, warning, danger, info;
+
+// Colors
+$colors: () !default;
+$colors: map.deep-merge(
+  (
+    'white': get-css-var('color-white'),
+    'black': get-css-var('color-black'),
+    'primary': (
+      'base': get-css-var('color-primary'),
+      '1': get-css-var('color-primary-1'),
+      '2': get-css-var('color-primary-2'),
+      '3': get-css-var('color-primary-3'),
+      '4': get-css-var('color-primary-4'),
+      '5': get-css-var('color-primary-5'),
+      '6': get-css-var('color-primary-6'),
+      '7': get-css-var('color-primary-7'),
+      '8': get-css-var('color-primary-8'),
+      '9': get-css-var('color-primary-9'),
+      '10': get-css-var('color-primary-10')
+    ),
+    'success': (
+      'base': get-css-var('color-success'),
+      'hover': get-css-var('color-success-5'),
+      'active': get-css-var('color-success-7')
+    ),
+    'warning': (
+      'base': get-css-var('color-warning'),
+      'hover': get-css-var('color-warning-5'),
+      'active': get-css-var('color-warning-7')
+    ),
+    'danger': (
+      'base': get-css-var('color-danger'),
+      'hover': get-css-var('color-danger-5'),
+      'active': get-css-var('color-danger-7')
+    ),
+    'info': (
+      'base': get-css-var('color-info'),
+      'hover': get-css-var('color-info-5'),
+      'active': get-css-var('color-info-7')
+    ),
+    'gary': (
+      'base': get-css-var('color-gary'),
+      'hover': get-css-var('color-gary'),
+      'active': get-css-var('color-gary')
+    )
+  ),
+  $colors
+);
+$color-white: map.get($colors, 'white') !default;
+$color-black: map.get($colors, 'black') !default;
+$color-primary: map.get($colors, 'primary', 'base') !default;
+$color-success: map.get($colors, 'success', 'base') !default;
+$color-warning: map.get($colors, 'warning', 'base') !default;
+$color-danger: map.get($colors, 'danger', 'base') !default;
+$color-info: map.get($colors, 'info', 'base') !default;
+
+// Font
+$font-family: () !default;
+$font-family: map.merge(
+  (
+    // default family
+    '': "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
+  ),
+  $font-family
+);
+
+$font-size: () !default;
+$font-size: map.merge(
+  (
+    'extra-large': 20px,
+    'large': 18px,
+    'medium': 16px,
+    'base': 14px,
+    'small': 13px,
+    'extra-small': 12px
+  ),
+  $font-size
+);
+
+// Height
+$height: () !default;
+$height: map.merge(
+  (
+    'large': 40px,
+    'base': 30px,
+    'small': 24px
+  ),
+  $height
+);
+
+// Border
+$border-width: () !default;
+$border-width: map.merge(
+  (
+    'base': 1px,
+    'bold': 2px
+  ),
+  $border-width
+);
+
+$border-radius: () !default;
+$border-radius: map.merge(
+  (
+    'base': 2px,
+    'large': 4px,
+    'round': 20px,
+    'circle': 100%
+  ),
+  $border-radius
+);
+
+$border-style: () !default;
+$border-style: map.merge(
+  (
+    'solid': solid,
+    'dashed': dashed
+  ),
+  $border-style
+);
+
+// Button
+$button: () !default;
+$button: map.merge(
+  (
+    'font-weight': get-css-var('font-weight-base'),
+    'border-color': map.get($colors, 'gary', 'base'),
+    'background-color': get-css-var('color-primary'),
+    'text-color-white': map.get($colors, 'white'),
+    'text-color-black': map.get($colors, 'black'),
+    'link-text-color': get-css-var('color-primary'),
+    'disabled-text-color': get-css-var('disabled-text-color'),
+    'disabled-background-color': get-css-var('fill-color', 'blank'),
+    'disabled-border-color': get-css-var('border-color-light'),
+    'divide-border-color': rgba($color-white, 0.5),
+    'hover-text-color': get-css-var('color-primary', '5'),
+    'hover-background-color': get-css-var('color-primary', '5'),
+    'hover-border-color': get-css-var('color-primary', '5'),
+    'hover-link-text-color': get-css-var('color-primary', '5'),
+    'active-text-color': get-css-var('color-primary', '7'),
+    'active-border-color': get-css-var('color-primary', '7'),
+    'active-background-color': get-css-var('color-primary', '7'),
+    'active-link-text-color': get-css-var('color-primary', '7'),
+    'outline-color': get-css-var('color-primary', '5'),
+    'active-color': get-css-var('text-color', 'primary')
+  ),
+  $button
+);
+
+$button-height: () !default;
+$button-height: map.merge(
+  (
+    'large': map.get($height, 'large'),
+    'default': map.get($height, 'base'),
+    'small': map.get($height, 'small')
+  ),
+  $button-height
+);
+
+$button-font-size: () !default;
+$button-font-size: map.merge(
+  (
+    'large': map.get($font-size, 'large'),
+    'default': map.get($font-size, 'base'),
+    'small': map.get($font-size, 'base')
+  ),
+  $button-font-size
+);
+
+$button-padding-horizontal: () !default;
+$button-padding-horizontal: map.merge(
+  (
+    'large': 20px,
+    'default': 16px,
+    'small': 12px
+  ),
+  $button-padding-horizontal
+);
+
+$button-border-radius: () !default;
+$button-border-radius: map.merge(
+  (
+    'large': map.get($border-radius, 'large'),
+    'default': map.get($border-radius, 'base'),
+    'small': map.get($border-radius, 'base')
+  ),
+  $button-border-radius
+);

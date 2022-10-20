@@ -1,0 +1,23 @@
+{
+  "name": "@se-ui/docs-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@se-ui/vue": "npm:@se-ui/vue@latest"
+  },
+  "devDependencies": {
+    "@algolia/client-search": "^4.14.2",
+    "vitepress": "1.0.0-alpha.21",
+    "vitepress-demoblock": "1.0.0-alpha.12"
+  }
+}

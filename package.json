@@ -1,0 +1,79 @@
+{
+  "private": true,
+  "author": "XuedongZhou",
+  "license": "ISC",
+  "scripts": {
+    "dev": "pnpm -C play dev",
+    "build": "gulp --require sucrase/register -f ./build/gulpfile.ts",
+    "clean": "rimraf ./dist",
+    "lint": "npm run lint:script && npm lint:style",
+    "lint:script": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
+    "lint:style": "stylelint **/*.scss",
+    "format": "prettier --write **/*",
+    "docs:dev": "pnpm -C docs dev",
+    "docs:build": "pnpm -C docs build",
+    "docs:serve": "pnpm -C docs serve",
+    "commit": "git-cz",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{scss,md,json}": [
+      "prettier --write"
+    ],
+    "*.{vue,ts,js}": [
+      "eslint",
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "dependencies": {
+    "@se-ui/vue": "workspace:*"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/cz-commitlint": "^17.1.2",
+    "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@types/gulp": "^4.0.9",
+    "@types/gulp-clean-css": "^4.3.0",
+    "@types/gulp-sass": "^5.0.0",
+    "@types/node": "^18.11.2",
+    "@types/sass": "^1.43.1",
+    "@vue/compiler-sfc": "^3.2.41",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "commitizen": "^4.2.5",
+    "eslint": "^8.25.0",
+    "eslint-plugin-vue": "^9.6.0",
+    "fast-glob": "^3.2.12",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^5.1.0",
+    "husky": "^8.0.1",
+    "inquirer": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.3.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.2.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.55.0",
+    "stylelint": "^14.14.0",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "stylelint-order": "^5.0.0",
+    "sucrase": "^3.28.0",
+    "ts-morph": "^16.0.0",
+    "typescript": "^4.8.4",
+    "vue": "^3.2.36"
+  }
+}
