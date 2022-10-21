@@ -12,9 +12,9 @@ export default defineConfig({
   title: 'SeUI Vue',
   lang: 'zh-CN',
   description: 'A Component Library for Vue',
-  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
+  head: [['link', { rel: 'icon', href: '/se-ui-vue/logo.svg' }]],
   themeConfig: {
-    logo: '/se-ui-vue/logo.svg',
+    logo: '/logo.svg',
     socialLinks: [{ icon: 'github', link: 'https://github.com/XuedongZhou/se-ui-vue' }],
     nav: [
       {
