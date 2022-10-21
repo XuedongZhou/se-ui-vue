@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "vue": "^3.0.0",
     "@se-ui/vue": "npm:@se-ui/vue@latest"
   },
   "devDependencies": {

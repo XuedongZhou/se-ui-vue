@@ -13,5 +13,5 @@
 <se-button type="dashed" danger>Dashed</se-button>
 
 <style lang="scss">
-    @import "@se-ui/vue/style/index.scss"
+    @import "@se-ui/vue/es/style/index.scss"
 </style>
