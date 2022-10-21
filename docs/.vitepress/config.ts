@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-  base: './',
   title: 'se-ui-vue',
   description: 'se-ui vue components library',
   themeConfig: {
