@@ -1,6 +1,7 @@
 {
+  "private": true,
   "name": "@se-ui/vue",
-  "version": "0.0.13",
+  "version": "0.0.0",
   "description": "se-ui for vue",
   "main": "index.ts",
   "keywords": [
@@ -9,10 +10,7 @@
     "components library"
   ],
   "author": "XuedongZhou",
-  "license": "ISC",
-  "publishConfig": {
-    "access": "public"
-  },
+  "license": "MIT",
   "peerDependencies": {
     "vue": "^3.0.0"
   }

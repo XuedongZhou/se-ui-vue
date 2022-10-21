@@ -1,6 +1,6 @@
-# se-ui for vue
+<h1 align="center">SeUI for Vue</h1>
 
-### 安装
+## Install
 
 ```shell
 # NPM
@@ -13,7 +13,7 @@ $ yarn add @se-ui/vue
 $ pnpm add @se-ui/vue
 ```
 
-### 使用
+## Usage
 
 ```ts
 // main.ts
@@ -27,3 +27,7 @@ const app = createApp(App);
 app.use(SeUI);
 app.mount('#app');
 ```
+
+## License
+
+SeUI is open source software licensed as [MIT](https://github.com/XuedongZhou/se-ui-vue/blob/main/LICENSE).

@@ -7,7 +7,7 @@ import { distDir } from './path';
 export default series(
   withTaskName('clean', () => run('pnpm run clean')),
   withTaskName('createOutput', () => mkdir(distDir, { recursive: true })),
-  parallel(runTask('buildBundle'), runTask('buildFullBundle'), runTask('genTypes'), runTask('buildCss'), runTask('copyPackageJson'))
+  parallel(runTask('buildBundle'), runTask('buildFullBundle'), runTask('genTypes'), runTask('buildCss'), runTask('copyFiles'))
 );
 
 export * from './task';

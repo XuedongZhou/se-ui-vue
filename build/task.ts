@@ -177,8 +177,11 @@ function copyScss() {
   return compile;
 }
 
-async function copyPackageJson() {
-  await copyFile(resolve(componentsDir, 'package.publish.json'), resolve(distDir, 'package.json'));
+function copyFiles() {
+  return Promise.all([
+    copyFile(resolve(componentsDir, 'package.publish.json'), resolve(distDir, 'package.json')),
+    copyFile(resolve(projectDir, 'README.md'), resolve(distDir, 'README.md'))
+  ]);
 }
 
-export { buildFullBundle, buildBundle, genTypes, buildCss, copyPackageJson };
+export { buildFullBundle, buildBundle, genTypes, buildCss, copyFiles };

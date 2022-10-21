@@ -10,8 +10,8 @@
     "serve": "vitepress serve"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "XuedongZhou",
+  "license": "MIT",
   "dependencies": {
     "vue": "^3.0.0",
     "@se-ui/vue": "npm:@se-ui/vue@latest"

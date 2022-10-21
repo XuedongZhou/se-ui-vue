@@ -1,17 +1,26 @@
 {
   "name": "@se-ui/vue",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "description": "se-ui for vue",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "types/index.d.ts",
   "files": ["dist", "es", "lib", "types"],
-  "keywords": ["se-ui", "vue", "components library"],
+  "keywords": ["se-ui", "vue", "component library"],
   "author": "XuedongZhou",
-  "license": "ISC",
+  "license": "MIT",
+  "homepage": "https://XuedongZhou.github.io/se-ui-vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XuedongZhou/se-ui-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/XuedongZhou/se-ui-vue/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": ["dist/*", "es/**/style/*", "lib/**/style/*"],
   "peerDependencies": {
     "vue": "^3.0.0"
   }

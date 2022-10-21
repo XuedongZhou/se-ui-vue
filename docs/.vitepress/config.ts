@@ -1,15 +1,25 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+  vite: {
+    server: {
+      fs: {
+        allow: ['..']
+      }
+    }
+  },
   base: '/se-ui-vue/',
-  title: 'se-ui-vue',
-  description: 'se-ui vue components library',
+  title: 'SeUI Vue',
+  lang: 'zh-CN',
+  description: 'A Component Library for Vue',
+  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   themeConfig: {
+    logo: '/logo.svg',
     socialLinks: [{ icon: 'github', link: 'https://github.com/XuedongZhou/se-ui-vue' }],
     nav: [
       {
         text: '文档',
-        link: '/guide/index'
+        link: '/guide/introduce'
       },
       {
         text: '组件',
@@ -31,7 +41,7 @@ export default defineConfig({
     ],
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2022-present snoweast'
+      copyright: 'Copyright © 2022-present XuedongZhou'
     }
   }
 });
