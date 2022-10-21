@@ -14,7 +14,7 @@ export default defineConfig({
   description: 'A Component Library for Vue',
   head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   themeConfig: {
-    logo: '/logo.svg',
+    logo: '/se-ui-vue/logo.svg',
     socialLinks: [{ icon: 'github', link: 'https://github.com/XuedongZhou/se-ui-vue' }],
     nav: [
       {

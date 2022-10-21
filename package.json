@@ -1,5 +1,10 @@
 {
   "private": true,
+  "workspaces": [
+    "components",
+    "play",
+    "docs"
+  ],
   "author": "XuedongZhou",
   "license": "MIT",
   "homepage": "https://XuedongZhou.github.io/se-ui-vue",
