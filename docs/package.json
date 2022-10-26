@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@algolia/client-search": "^4.14.2",
-    "vitepress": "1.0.0-alpha.21",
-    "vitepress-demoblock": "1.0.0-alpha.12"
+    "vitepress": "^1.0.0-alpha.25",
+    "vitepress-demoblock": "^1.0.0-alpha.12"
   }
 }
