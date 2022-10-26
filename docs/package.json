@@ -13,8 +13,7 @@
   "author": "XuedongZhou",
   "license": "MIT",
   "dependencies": {
-    "vue": "^3.0.0",
-    "@se-ui/vue": "npm:@se-ui/vue@latest"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@algolia/client-search": "^4.14.2",

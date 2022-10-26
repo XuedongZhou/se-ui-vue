@@ -99,12 +99,10 @@ importers:
   docs:
     specifiers:
       '@algolia/client-search': ^4.14.2
-      '@se-ui/vue': npm:@se-ui/vue@latest
       vitepress: ^1.0.0-alpha.25
       vitepress-demoblock: ^1.0.0-alpha.12
       vue: ^3.0.0
     dependencies:
-      '@se-ui/vue': 0.1.5_vue@3.2.41
       vue: 3.2.41
     devDependencies:
       '@algolia/client-search': 4.14.2
@@ -689,14 +687,6 @@ packages:
       picomatch: 2.3.1
       rollup: 3.2.3
     dev: true
-
-  /@se-ui/vue/0.1.5_vue@3.2.41:
-    resolution: {integrity: sha512-JCmmtkHQjIdRBSZNl4+F8Zz8x/2wP7NKiK6eb++zbY9uzVYA8Hvzuq3oRLLCvwA/rVY2pKVYkOOnIaXbzH6qiw==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      vue: 3.2.41
-    dev: false
 
   /@ts-morph/common/0.17.0:
     resolution: {integrity: sha512-RMSSvSfs9kb0VzkvQ2NWobwnj7TxCA9vI/IjR9bDHqgAyVbu2T0DN4wiKVqomyDWqO7dPr/tErSfq7urQ1Q37g==}

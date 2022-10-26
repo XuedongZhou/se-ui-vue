@@ -8,7 +8,10 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@se-ui/vue": ["./components"]
+    }
   },
   "exclude": ["node_modules/**"]
 }

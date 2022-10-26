@@ -1,13 +1,6 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-  vite: {
-    server: {
-      fs: {
-        allow: ['..']
-      }
-    }
-  },
   base: '/se-ui-vue/',
   title: 'SeUI Vue',
   lang: 'zh-CN',

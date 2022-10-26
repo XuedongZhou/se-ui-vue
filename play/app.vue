@@ -9,8 +9,3 @@ const onClick = (e: MouseEvent) => {
   console.log(e);
 };
 </script>
-
-<style lang="scss">
-@import '@se-ui/vue/style/base.scss';
-@import '@se-ui/vue/button/style/index.scss';
-</style>

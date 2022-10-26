@@ -14,7 +14,7 @@ defineProps({
 <template>
   <div class="example-showcase">
     <ClientOnly>
-      <component :is="demo" v-if="demo" v-bind="$attrs" />
+      <component v-if="demo" :is="demo" v-bind="$attrs" />
     </ClientOnly>
   </div>
 </template>

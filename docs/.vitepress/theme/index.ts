@@ -4,7 +4,7 @@ import { globals } from '../vitepress';
 
 import SeUI from '@se-ui/vue';
 
-import '@se-ui/vue/dist/index.css';
+import '@se-ui/vue/style/index.scss';
 
 export default {
   ...DefaultTheme,

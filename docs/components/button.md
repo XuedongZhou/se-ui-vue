@@ -6,4 +6,4 @@
     import Button from '../examples/button/basic.vue';
 </script>
 
-<Demo :demo="Button" ></Demo>
+<Demo :demo="Button" file="button/basic.vue"></Demo>
